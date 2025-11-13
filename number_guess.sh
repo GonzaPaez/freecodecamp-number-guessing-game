@@ -19,3 +19,7 @@ else
   IFS="|" read USER_ID, USER_NAME GAMES_PLAYED BEST_GAME <<< "$USER_IN_DATABASE"
   echo -e "\nWelcome back, $USER_NAME! You have played $GAMES_PLAYED game, and your best game took $BEST_GAME guesses."
 fi
+
+SECRET_NUMBER=$(( RANDOM % 1000 + 1 ))
+NUMBER_OF_GUESSES=0
+

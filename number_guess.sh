@@ -2,7 +2,8 @@
 
 PSQL="psql --username=freecodecamp --dbname=number_guess -t --no-align -c"
 
-read -p "Enter your username: " USER_NAME
+echo "Enter your username:"
+read USER_NAME
 
 if [[ -z $USER_NAME ]]
 then
@@ -14,10 +15,10 @@ USER_IN_DATABASE=$($PSQL "SELECT * FROM users WHERE user_name='$USER_NAME'")
 
 if [[ -z $USER_IN_DATABASE ]]
 then
-  echo -e "\nWelcome, $USER_NAME! It looks like this your first time here."
+  echo "Welcome, $USER_NAME! It looks like this is your first time here."
 else
   IFS="|" read USER_ID USER_NAME GAMES_PLAYED BEST_GAME <<< "$USER_IN_DATABASE"
-  echo -e "\nWelcome back, $USER_NAME! You have played $GAMES_PLAYED games, and your best game took $BEST_GAME guesses."
+  echo "Welcome back, $USER_NAME! You have played $GAMES_PLAYED games, and your best game took $BEST_GAME guesses."
 fi
 
 SECRET_NUMBER=$(( RANDOM % 1000 + 1 ))

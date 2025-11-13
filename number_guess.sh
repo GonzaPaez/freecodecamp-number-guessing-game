@@ -17,7 +17,7 @@ then
   echo -e "\nWelcome, $USER_NAME! It looks like this your first time here."
 else
   IFS="|" read USER_ID USER_NAME GAMES_PLAYED BEST_GAME <<< "$USER_IN_DATABASE"
-  echo -e "\nWelcome back, $USER_NAME! You have played $GAMES_PLAYED game, and your best game took $BEST_GAME guesses."
+  echo -e "\nWelcome back, $USER_NAME! You have played $GAMES_PLAYED games, and your best game took $BEST_GAME guesses."
 fi
 
 SECRET_NUMBER=$(( RANDOM % 1000 + 1 ))
